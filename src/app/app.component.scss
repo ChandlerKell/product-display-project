@@ -1,0 +1,33 @@
+.wrapper {
+    height: auto; 
+    padding: 20px; 
+    width: 100%; 
+}
+.svg-caret{
+    width: 2rem;
+}
+/* Select element */
+select {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    margin-left: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  select:hover {
+    border-color: #999;
+  }
+  select:focus {
+    outline: none;
+    border-color: #333;
+  }
+  select::-ms-expand {
+    display: none;
+  }
+  select option {
+    font-size: 16px;
+  }
+  
+  

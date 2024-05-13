@@ -1,0 +1,58 @@
+html, body {
+
+    padding: 0 2rem;
+    box-sizing: border-box;
+    
+}
+html {
+    background-color: transparent;
+}
+body {
+    background: linear-gradient(45deg, #e1f1de, #b6deb1, #e1f1de);
+}
+html, body, app-root {
+    height: 100%
+}
+app-root {
+    display: flex; 
+    flex-direction: column;
+}
+p, h2, h3, div {
+    font-family: poppins,Sans-serif;
+}
+
+// General Styles 
+.row {
+    display: flex;
+    flex-direction: row;
+}
+.column {
+    display: flex;
+    flex-direction: column;
+}
+.wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+.space-between {
+    justify-content: space-between;
+}
+button {
+    background-color: transparent;
+    border: none;
+}
+.align-center {
+    display: flex;
+    align-items: center;
+}
+.justify-center {
+    display: flex;
+    justify-content: center;
+}
+.header {
+    background-color: #f2932a;
+    margin-bottom: 2rem;
+    margin-left: -5%; 
+    margin-right: -5%;
+    padding-right: 2rem ;
+}

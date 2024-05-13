@@ -1,0 +1,45 @@
+<!-- Header-->
+<div class="row space-between header">
+    <img style="height: 50px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0TovQ2VxKfIt_EYgFbPbJQESkrwIc-S4qWPAT12VC&s" alt="">
+    <div class="align-center">SEE MORE PRODUCTS</div>
+    <div class="align-center">SPECIALS</div>
+    <div class="align-center">CONTACT US</div>
+</div>
+<div class="row space-between">
+    <div class="align-center">
+        Sort by Category
+        <select [(ngModel)]="selectedOption" (change)="onOptionChange()">
+            <option value="All">All</option>
+            <option value="Category A">Category A</option>
+            <option value="Category B">Category B</option>
+
+        </select>
+    </div>
+    <div class="align-center">
+        Sort By Price
+        <button (click)="toggleAscending()">
+            <svg *ngIf="!ascending" class="svg-caret" clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m16.843 13.789c.108.141.157.3.157.456 0 .389-.306.755-.749.755h-8.501c-.445 0-.75-.367-.75-.755 0-.157.05-.316.159-.457 1.203-1.554 3.252-4.199 4.258-5.498.142-.184.36-.29.592-.29.23 0 .449.107.591.291 1.002 1.299 3.044 3.945 4.243 5.498z"/></svg>
+            <svg *ngIf="ascending" class="svg-caret" clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m16.843 10.211c.108-.141.157-.3.157-.456 0-.389-.306-.755-.749-.755h-8.501c-.445 0-.75.367-.75.755 0 .157.05.316.159.457 1.203 1.554 3.252 4.199 4.258 5.498.142.184.36.29.592.29.23 0 .449-.107.591-.291 1.002-1.299 3.044-3.945 4.243-5.498z"/></svg>
+        </button>
+    </div>
+</div>
+
+<!-- Product List  -->
+<div class="wrapper">
+    <div class="row wrap space-between product-container" >
+    <app-product *ngFor="let product of products" [product]="product"></app-product>
+</div>
+</div>
+
+<!-- Footer-->
+<div class="justify-center" *ngIf="shouldDisplayPagination()">
+    <button *ngIf="!isFirstPage()" (click)="pageLeft()">
+        <svg class="svg-caret" clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m13.789 7.155c.141-.108.3-.157.456-.157.389 0 .755.306.755.749v8.501c0 .445-.367.75-.755.75-.157 0-.316-.05-.457-.159-1.554-1.203-4.199-3.252-5.498-4.258-.184-.142-.29-.36-.29-.592 0-.23.107-.449.291-.591 1.299-1.002 3.945-3.044 5.498-4.243z"/></svg>
+    </button>
+    <p>{{pageNumber}} / {{numberOfPages()}}</p>
+    <button *ngIf="!isLastPage()" (click)="pageRight()">
+        <svg class="svg-caret" clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m10.211 7.155c-.141-.108-.3-.157-.456-.157-.389 0-.755.306-.755.749v8.501c0 .445.367.75.755.75.157 0 .316-.05.457-.159 1.554-1.203 4.199-3.252 5.498-4.258.184-.142.29-.36.29-.592 0-.23-.107-.449-.291-.591-1.299-1.002-3.945-3.044-5.498-4.243z"/></svg>
+    </button>
+</div>
+
+<router-outlet />
